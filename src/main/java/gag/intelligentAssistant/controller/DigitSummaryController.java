@@ -58,4 +58,32 @@ public class DigitSummaryController {
                 year, quarter, month, day);
         return Result.success(list);
     }
+
+    @PostMapping
+    public Result<DigitSummary> create(@RequestBody DigitSummary digitSummary) {
+        boolean saved = digitSummaryService.save(digitSummary);
+        if (saved) {
+            return Result.success("新增成功", digitSummary);
+        }
+        return Result.error("新增失败");
+    }
+
+    @PutMapping("/{id}")
+    public Result<DigitSummary> update(@PathVariable Integer id, @RequestBody DigitSummary digitSummary) {
+        digitSummary.setId(id);
+        boolean updated = digitSummaryService.updateById(digitSummary);
+        if (updated) {
+            return Result.success("更新成功", digitSummary);
+        }
+        return Result.notFound("记录不存在");
+    }
+
+    @DeleteMapping("/{id}")
+    public Result<Void> delete(@PathVariable Integer id) {
+        boolean removed = digitSummaryService.removeById(id);
+        if (removed) {
+            return Result.success("删除成功", null);
+        }
+        return Result.notFound("记录不存在");
+    }
 }

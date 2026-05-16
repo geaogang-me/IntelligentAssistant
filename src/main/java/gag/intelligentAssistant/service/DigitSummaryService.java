@@ -19,4 +19,10 @@ public interface DigitSummaryService {
                                  String streetName, String rateName,
                                  Integer year, Integer quarter,
                                  Integer month, Integer day);
+
+    boolean save(DigitSummary digitSummary);
+
+    boolean updateById(DigitSummary digitSummary);
+
+    boolean removeById(Integer id);
 }

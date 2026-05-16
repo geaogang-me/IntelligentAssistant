@@ -77,4 +77,19 @@ public class DigitSummaryServiceImpl
 
         return wrapper;
     }
+
+    @Override
+    public boolean save(DigitSummary digitSummary) {
+        return super.save(digitSummary);
+    }
+
+    @Override
+    public boolean updateById(DigitSummary digitSummary) {
+        return super.updateById(digitSummary);
+    }
+
+    @Override
+    public boolean removeById(Integer id) {
+        return super.removeById(id);
+    }
 }
